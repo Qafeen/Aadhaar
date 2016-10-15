@@ -1,4 +1,5 @@
 <?php
+
 namespace Qafeen\Aadhaar;
 
 use Illuminate\Support\ServiceProvider;
@@ -13,8 +14,7 @@ class AadhaarServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('aadhaar', function ($app) {
-            return new Aadhaar;
+            return new Aadhaar();
         });
     }
-
 }
