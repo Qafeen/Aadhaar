@@ -2,9 +2,23 @@
 namespace Qafeen\Aadhaar;
 
 use Illuminate\Support\ServiceProvider;
+use Qafeen\Aadhaar\Aadhaar;
+use Validator;
 
 class AadhaarServiceProvider extends ServiceProvider
 {
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Validator::extend('valid_aadhaar', function() {
+            return (bool) app('aadhaar')->partialMatch();
+        });
+    }
+
     /**
      * Register bindings in the container.
      *
@@ -13,7 +27,7 @@ class AadhaarServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('aadhaar', function ($app) {
-            return new Aadhaar;
+            return $app->make(Aadhaar::class);
         });
     }
 
