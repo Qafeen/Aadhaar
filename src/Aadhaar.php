@@ -1,4 +1,5 @@
 <?php
+
 namespace Qafeen\Aadhaar;
 
 use App\User;

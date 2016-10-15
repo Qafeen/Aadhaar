@@ -1,4 +1,5 @@
 <?php
+
 namespace Qafeen\Aadhaar;
 
 use Illuminate\Support\ServiceProvider;
@@ -30,5 +31,4 @@ class AadhaarServiceProvider extends ServiceProvider
             return $app->make(Aadhaar::class);
         });
     }
-
 }
