@@ -6,22 +6,20 @@ Authenticating users by Aadhar is a breeze with this package.
 
 In order to install Aadhaar, just add
 
-    "Qafeen/aadhaar": "@dev"
+    "qafeen/aadhaar": "@dev"
 
 to your composer.json. Then run `composer install` or `composer update`.
 
 or you can run the `composer require` command from your terminal:
 
-    composer require Qafeen/aadhaar:@dev
+    composer require qafeen/aadhaar:@dev
 
 Then in your `config/app.php` add
 ```php
-    Qafeen\aadhaar\AadhaarProvider::class,
+    Qafeen\Aadhaar\AadhaarProvider::class,
 ```
 in the `providers` array and
 ```php
-    'Aadhaar'   => Qafeen\Aadhaar\AadhaarFacade::class,
+    'Aadhaar' => Qafeen\Aadhaar\AadhaarFacade::class,
 ```
 to the `aliases` array.
-
-## Configuration
