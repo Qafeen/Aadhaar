@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'modality' => 'demo',
+    'modality'         => 'demo',
     'certificate-type' => 'preprod',
 ];

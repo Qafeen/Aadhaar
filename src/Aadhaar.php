@@ -31,19 +31,19 @@ class Aadhaar
     {
         $options = [
             'aadhaar-id' => $this->request['aadhaarId'],
-            'location' => [
-                'type' => 'pincode',
-                'pincode' => $this->request['pincode']
+            'location'   => [
+                'type'    => 'pincode',
+                'pincode' => $this->request['pincode'],
             ],
-            'modality' => $this->config['modality'],
+            'modality'         => $this->config['modality'],
             'certificate-type' => $this->config['certificate-type'],
-            'demographics' => [
+            'demographics'     => [
                 'name' => [
                     'matching-strategy' => 'partial',
-                    'name-value' => $this->request['name'],
-                    'matching-value' => 20,
+                    'name-value'        => $this->request['name'],
+                    'matching-value'    => 20,
                 ],
-            ]
+            ],
         ];
 
         return $this->send(static::DEMOGRAPHIC_URL, $options);
@@ -52,17 +52,17 @@ class Aadhaar
     public function generateOtp()
     {
         $options = [
-            'aadhaar-id' => $this->request['aadhaarId'],
-            'device-id' => '',
+            'aadhaar-id'       => $this->request['aadhaarId'],
+            'device-id'        => '',
             'certificate-type' => $this->config['certificate-type'],
-            'channel' => 'SMS',
-            'location' => [
-                'type' => '',
-                'latitude' => '',
+            'channel'          => 'SMS',
+            'location'         => [
+                'type'      => '',
+                'latitude'  => '',
                 'longitude' => '',
-                'altitude' => '',
-                'pincode' => '',
-            ]
+                'altitude'  => '',
+                'pincode'   => '',
+            ],
         ];
 
         return $this->send(static::OTP_URL, $options);
@@ -71,13 +71,13 @@ class Aadhaar
     public function verifyOtp()
     {
         $options = [
-            'aadhaar-id' => $this->request['aadhaarId'],
-            'modality' => $this->config['modality'],
-            'otp' => $this->request['otp'],
+            'aadhaar-id'       => $this->request['aadhaarId'],
+            'modality'         => $this->config['modality'],
+            'otp'              => $this->request['otp'],
             'certificate-type' => $this->config['certificate-type'],
-            'device-id' => '',
-            'location' => [
-                'type' => 'pincode',
+            'device-id'        => '',
+            'location'         => [
+                'type'    => 'pincode',
                 'pincode' => $this->getUser($this->request['aadhaarId'])->pincode,
             ],
         ];
@@ -89,12 +89,12 @@ class Aadhaar
     {
         $response = json_decode($this->client
             ->request('POST', $url, [
-                'json' => $options
+                'json' => $options,
             ])
             ->getBody()
             ->getContents(), true);
 
-        return $response['success'] ? $response['aadhaar-reference-code']: false;
+        return $response['success'] ? $response['aadhaar-reference-code'] : false;
     }
 
     public function getUser($aadhaarId)

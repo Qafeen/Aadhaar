@@ -3,7 +3,6 @@
 namespace Qafeen\Aadhaar;
 
 use Illuminate\Support\ServiceProvider;
-use Qafeen\Aadhaar\Aadhaar;
 use Validator;
 
 class AadhaarServiceProvider extends ServiceProvider
@@ -15,7 +14,7 @@ class AadhaarServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Validator::extend('valid_aadhaar', function() {
+        Validator::extend('valid_aadhaar', function () {
             return (bool) app('aadhaar')->partialMatch();
         });
     }
