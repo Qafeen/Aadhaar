@@ -9,6 +9,12 @@
         }
     ],
     "require": {
-        "laravel/framework": "^5.1"
+        "laravel/framework": "^5.1",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Qafeen\\Aadhaar\\": "src/"
+        }
     }
 }
