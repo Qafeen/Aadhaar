@@ -1,0 +1,14 @@
+{
+    "name": "qafeen/aadhaar",
+    "description": "Aaadhaar Bridge for laravel.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohammed Mudasir",
+            "email": "hello@mudasir.me"
+        }
+    ],
+    "require": {
+        "laravel/framework": "^5.1"
+    }
+}
