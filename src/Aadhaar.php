@@ -6,16 +6,44 @@ use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
+/**
+ * Aadhaar Validation entry point.
+ *
+ * @package Qafeen\Aadhaar
+ */
 class Aadhaar
 {
+    /**
+     * Demographic url
+     *
+     * @type string
+     */
     const DEMOGRAPHIC_URL = 'http://139.59.30.133:9090/auth/raw/';
 
+    /**
+     * OTP url
+     *
+     * @type string
+     */
     const OTP_URL = 'http://139.59.30.133:9090/otp/';
 
+    /**
+     * Guzzle client to communicate with aadhaar bridge api
+     *
+     * @var \GuzzleHttp\Client;
+     */
     protected $client;
 
+    /**
+     * Aadhaar bridge configuration
+     *
+     * @var array|bool
+     */
     protected $config;
 
+    /**
+     * @var \Illuminate\Http\Request
+     */
     protected $request;
 
     public function __construct(Client $client, Request $request)
@@ -72,10 +100,9 @@ class Aadhaar
     {
         $options = [
             'aadhaar-id'       => $this->request['aadhaarId'],
-            'modality'         => $this->config['modality'],
+            'modality'         => 'otp',
             'otp'              => $this->request['otp'],
             'certificate-type' => $this->config['certificate-type'],
-            'device-id'        => '',
             'location'         => [
                 'type'    => 'pincode',
                 'pincode' => $this->getUser($this->request['aadhaarId'])->pincode,
