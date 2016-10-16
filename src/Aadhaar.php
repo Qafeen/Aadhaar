@@ -8,34 +8,32 @@ use Illuminate\Http\Request;
 
 /**
  * Aadhaar Validation entry point.
- *
- * @package Qafeen\Aadhaar
  */
 class Aadhaar
 {
     /**
-     * Demographic url
+     * Demographic url.
      *
-     * @type string
+     * @var string
      */
     const DEMOGRAPHIC_URL = 'http://139.59.30.133:9090/auth/raw/';
 
     /**
-     * OTP url
+     * OTP url.
      *
-     * @type string
+     * @var string
      */
     const OTP_URL = 'http://139.59.30.133:9090/otp/';
 
     /**
-     * Guzzle client to communicate with aadhaar bridge api
+     * Guzzle client to communicate with aadhaar bridge api.
      *
      * @var \GuzzleHttp\Client;
      */
     protected $client;
 
     /**
-     * Aadhaar bridge configuration
+     * Aadhaar bridge configuration.
      *
      * @var array|bool
      */
