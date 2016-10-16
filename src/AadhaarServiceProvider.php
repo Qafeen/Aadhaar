@@ -15,7 +15,7 @@ class AadhaarServiceProvider extends ServiceProvider
     public function boot()
     {
         Validator::extend('valid_aadhaar', function () {
-            return (bool) app('aadhaar')->partialMatch();
+            return app('aadhaar')->isValid();
         });
     }
 

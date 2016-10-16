@@ -27,7 +27,7 @@ class Aadhaar
         $this->config = config('aadhaar') ?: require __DIR__.'/../config.php';
     }
 
-    public function partialMatch()
+    public function isValid()
     {
         $options = [
             'aadhaar-id' => $this->request['aadhaarId'],
