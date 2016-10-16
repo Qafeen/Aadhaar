@@ -1,6 +1,6 @@
 # Aadhaar (Unique identification authority of India) Package on laravel 5.
 
-Authenticating users by Aadhar is a breeze with this package.
+Authenticating users by Aaadhaar is a breeze with this package.
 
 ## Installation
 
@@ -14,7 +14,7 @@ or add it in your `composer.json` file.
 ```
 then run `composer install` or `composer update`.
 
-Then in your `config/app.php` file add in the `providers` list
+In your `config/app.php` file add in the `providers` list
 ```php
 Qafeen\Aadhaar\AadhaarServiceProvider::class,
 ```
@@ -26,8 +26,7 @@ And then register `Aadhaar` facade in `aliases` array
 
 ## Api Documentation
 
-Notes:
-1. All the required parameters will be fetch from `Request`.
+Note: All the required parameters will be fetch from `Request`.
 
 ####`Aadhaar::isValid()`
 isValid(Partial match) will call aadhaar bridge api and submit a request. If user is authenticated then `aadhaar-reference-code` code will be return or `false`
