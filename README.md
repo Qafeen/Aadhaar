@@ -29,12 +29,15 @@ in the `providers` array and
 to the `aliases` array.
 
 ### Api Documentation
-Note all the required parameters will be fetch from `Request` facade.
+
+Notes:
+1. All the required parameters will be fetch from `Request` facade.
+2. 
 
 ####`Aadhaar::isValid()`
 Partial match will call aadhaar bridge api and submit a request. If user is authenticated then `aadhaar-reference-code` code will be return or `false`
 Note: 
-1. Parameters required in `Request` facade are `aadhaarId`, `pincode`, `name`
+1. Parameters required in `Request` facade is `aadhaarId`, `pincode`, `name`.
 2. Configuration such as `modality`, `certificate-type` will be loaded from `config/aadhaar.php` file.
 3. If not provided in configuration file then default value will be
 ```php
