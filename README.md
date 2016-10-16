@@ -1,4 +1,4 @@
-# Aadhaar Validation Package for laravel 5.
+# Aadhaar (Unique identification authority of India) Package on laravel 5.
 
 Authenticating users by Aadhar is a breeze with this package.
 
@@ -31,7 +31,7 @@ to the `aliases` array.
 ### Api Documentation
 Note all the required parameters will be fetch from `Request` facade.
 
-####`Aadhaar::partialMatch()`
+####`Aadhaar::isValid()`
 Partial match will call aadhaar bridge api and submit a request. If user is authenticated then `aadhaar-reference-code` code will be return or `false`
 Note: 
 1. Parameters required in `Request` facade are `aadhaarId`, `pincode`, `name`
