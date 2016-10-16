@@ -57,7 +57,7 @@ You can validate aadhaarId by simply passing `valid_aadhaar` to `Validator`
     return Validator::make($data, [
         'aadhaarId' => 'unique:users,aadhaar_id|valid_aadhaar',
     ], [
-        'aadhaarId.unique' => 'This Aadhaar id is already been used for registration.',
+        'aadhaarId.unique' => 'Aadhaar id is already been used for registration.',
         'valid_aadhaar'    => 'Please check if your aadhaar id, pincode or name is valid as per your aadhaar card.',
     ]);
 ```
